@@ -113,34 +113,6 @@ services:
     env_file: .env
     ## Remove to avoid starting on system reboot.
     restart: always
-  mailhog:
-    image: mailhog/mailhog
-    expose:
-      - "1025"
-    ports:
-      - "8025:8025"
-    ## Remove to avoid starting on system reboot.
-    restart: always
-  memcache:
-    image: memcached:alpine
-    expose:
-      - "11211"
-    ## Remove to avoid starting on system reboot.
-    restart: always
-  redis:
-    image: redis:alpine
-    expose:
-      - "6379"
-    ## Remove to avoid starting on system reboot.
-    restart: always
-  solr:
-    build: ./build/solr-${SOLR_VERSION:-6}
-    ports:
-      - "8983:8983"
-    environment:
-      - EXTRA_ACCESS="/solr/drupal"
-    ## Remove to avoid starting on system reboot.
-    restart: always
   # varnish:
   #   build: ./build/varnish
   #   ports:
